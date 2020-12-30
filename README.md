@@ -6,7 +6,7 @@ The MyBB forum must be hosted on the same server as the MediaWiki instance, or a
 
 ## Installation and configuration
 
-Upload all the root directory of this plugin as the `MyBBAuth` directory in your MediaWiki's `extensions` directory. Then, in your MediaWiki's `LocalSettings.php` file, add these two lines:
+Upload the root directory of this plugin as the `MyBBAuth` directory in your MediaWiki's `extensions` directory. Then, in your MediaWiki's `LocalSettings.php` file, add these two lines:
 
 ```
 wfLoadExtension('MyBBAuth');
