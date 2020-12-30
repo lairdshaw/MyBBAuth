@@ -1,0 +1,7 @@
+{
+  "@metadata": {
+    "authors": []
+  },
+  "mybbauth-desc": "Adds support for logging in to the wiki via a MyBB forum account.",
+  "mybbauth-unexpected-error": "An unexpected error occurred."
+}

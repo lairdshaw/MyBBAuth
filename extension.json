@@ -1,0 +1,30 @@
+{
+	"name": "MyBBAuth",
+	"author": "Laird Shaw",
+	"url": "",
+	"descriptionmsg": "mybbauth-desc",
+	"version": "1.0.0",
+	"requires": {
+		"MediaWiki": ">= 1.27.0"
+	},
+	"AutoloadClasses": {
+		"MyBBAuth\\Auth\\MyBBAuthenticationProvider": "auth/MyBBAuthenticationProvider.php",
+		"MyBBAuth\\Auth\\MyBBAuthenticationRequest" : "auth/MyBBAuthenticationRequest.php"
+	},
+	"AuthManagerAutoConfig": {
+		"primaryauth": {
+			"MyBBAuth\\Auth\\MyBBAuthenticationProvider": {
+				"class": "MyBBAuth\\Auth\\MyBBAuthenticationProvider",
+				"args": [ {"authoritative": true} ]
+			}
+		}
+	},
+	"MessagesDirs": {
+		"MyBBAuth": [
+			"i18n"
+		]
+	},
+	"license-name": "GPL-3.0+",
+	"type": "other",
+	"manifest_version": 1
+}
