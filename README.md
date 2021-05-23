@@ -8,11 +8,12 @@ For now, only MyBB forums running on MySQL/MariaDB databases are supported.
 
 ## Installation and configuration
 
-Upload the root directory of this plugin as the `MyBBAuth` directory in your MediaWiki's `extensions` directory. Then, in your MediaWiki's `LocalSettings.php` file, add these two lines:
+Upload the root directory of this plugin as the `MyBBAuth` directory in your MediaWiki's `extensions` directory. Then, in your MediaWiki's `LocalSettings.php` file, add these three lines (making sure the variable assignment of the third isn't overwritten later in the file):
 
 ```
 wfLoadExtension('MyBBAuth');
 $wgMyBBAuthForumPath = '/home/youusername/public_html/mybb/';
+$wgGroupPermissions['*']['autocreateaccount'] = true;
 ```
 
 where you should customise the value of `$wgMyBBAuthForumPath` to the fully qualified path to your MyBB forum's root directory on the shared filesystem. This allows the plugin to access your MyBB configuration file, and thereby connect to its database.
