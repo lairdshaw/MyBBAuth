@@ -29,6 +29,7 @@ use MediaWiki\Auth\AuthenticationRequest;
 use MediaWiki\Auth\AuthenticationResponse;
 use MediaWiki\Auth\AuthManager;
 use MediaWiki\Auth\PrimaryAuthenticationProvider;
+use MediaWiki\MediaWikiServices;
 use Hooks;
 use StatusValue;
 use User;
@@ -123,12 +124,13 @@ class MyBBAuthenticationProvider extends AbstractPasswordPrimaryAuthenticationPr
 					}
 				}
 			}
+			$effGroups = MediaWikiServices::getInstance()->getUserGroupManager()->getUserEffectiveGroups($user);
 			if ($is_admin) {
 				// If the user is not a sysop but should be, then make him/her a sysop.
-				if (!in_array('sysop', $user->getEffectiveGroups())) {
+				if (!in_array('sysop', $effGroups)) {
 					$user->addGroup('sysop');
 				}
-			} else if (in_array('sysop', $user->getEffectiveGroups())) {
+			} else if (in_array('sysop', $effGroups)) {
 				// Or if the user is a sysop but shouldn't be, then demote him/her from sysop.
 				$user->removeGroup('sysop');
 			}
