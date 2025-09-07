@@ -24,6 +24,9 @@
 			"i18n"
 		]
 	},
+	"Hooks": {
+		"UserLoggedIn": "MyBBAuthenticationProvider::onUserLoggedIn"
+	},
 	"license-name": "GPL-3.0+",
 	"type": "other",
 	"manifest_version": 1

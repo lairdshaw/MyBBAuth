@@ -30,7 +30,6 @@ use MediaWiki\Auth\AuthenticationResponse;
 use MediaWiki\Auth\AuthManager;
 use MediaWiki\Auth\PrimaryAuthenticationProvider;
 use MediaWiki\MediaWikiServices;
-use Hooks;
 use StatusValue;
 use User;
 
@@ -54,8 +53,6 @@ class MyBBAuthenticationProvider extends AbstractPasswordPrimaryAuthenticationPr
 		global $wgMyBBAuthForumPath;
 
 		parent::__construct($params);
-
-		Hooks::register('UserLoggedIn', [$this, 'onUserLoggedIn']);
 
 		$this->forum_path = $wgMyBBAuthForumPath;
 		require_once $this->forum_path."inc/config.php";
